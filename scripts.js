@@ -99,9 +99,9 @@ window.addEventListener('load', function() {
 
     var webAuth = new auth0.WebAuth(params);
     var databaseConnection = 'Username-Password-Authentication';
-    var captcha = webAuth.renderCaptcha(
-      document.querySelector('.captcha-container')
-    );
+    // var captcha = webAuth.renderCaptcha(
+    //   document.querySelector('.captcha-container')
+    // );
 
     function login(e) {
       console.log('login');
@@ -115,7 +115,7 @@ window.addEventListener('load', function() {
         realm: databaseConnection,
         username: username,
         password: password,
-        captcha: captcha.getValue()
+        // captcha: captcha.getValue()
       }, function(err) {
         if (err) displayError(err);
         button.disabled = false;
@@ -132,7 +132,7 @@ window.addEventListener('load', function() {
       webAuth.changePassword({
         connection: databaseConnection,
         email: email,
-        captcha: captcha.getValue()
+        // captcha: captcha.getValue()
       }, function (err, resp) {
         if (err) {
           if (err) displayError(err);
@@ -157,7 +157,7 @@ window.addEventListener('load', function() {
         connection: databaseConnection,
         email: email,
         password: password,
-        captcha: captcha.getValue()
+        // captcha: captcha.getValue()
       }, function(err) {
         if(err) {
           displayError(err);
