@@ -48,7 +48,7 @@ window.addEventListener('load', function() {
       document.getElementById('registerform').className = 'd-none';
       document.getElementById('loginform').className = '';
       document.getElementById('forgotpassword').className = 'd-none';
-      document.getElementById('extrainfo').className = 'd-none';
+      // document.getElementById('extrainfo').className = 'd-none';
     });
     document.getElementById('registerSwitcher2').addEventListener('click', function(e){
       e.preventDefault();
@@ -56,7 +56,7 @@ window.addEventListener('load', function() {
       document.getElementById('registerform').className = 'd-none';
       document.getElementById('loginform').className = '';
       document.getElementById('forgotpassword').className = 'd-none';
-      document.getElementById('extrainfo').className = 'd-none';
+      // document.getElementById('extrainfo').className = 'd-none';
     });
     document.getElementById('loginSwitcher').addEventListener('click', function(e){
       e.preventDefault();
@@ -64,7 +64,7 @@ window.addEventListener('load', function() {
       document.getElementById('registerform').className = '';
       document.getElementById('loginform').className = 'd-none';
       document.getElementById('forgotpassword').className = 'd-none';
-      document.getElementById('extrainfo').className = '';
+      // document.getElementById('extrainfo').className = '';
     });
     document.getElementById('forgotswitcher').addEventListener('click', function(e){
       e.preventDefault();
@@ -72,7 +72,7 @@ window.addEventListener('load', function() {
       document.getElementById('registerform').className = 'd-none';
       document.getElementById('loginform').className = 'd-none';
       document.getElementById('forgotpassword').className = '';
-      document.getElementById('extrainfo').className = 'd-none';
+      // document.getElementById('extrainfo').className = 'd-none';
     });
 
     if(config && "internalOptions" in config) {
