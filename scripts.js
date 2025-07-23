@@ -104,6 +104,7 @@ window.addEventListener('load', function() {
     );
 
     function login(e) {
+      console.log('login');
       e.preventDefault();
       clearErrors();
       var button = this;
@@ -122,6 +123,7 @@ window.addEventListener('load', function() {
     }
 
     function forgotpassword(e) {
+      console.log('forgotpassword');
       e.preventDefault();
       clearErrors();
       var button = this;
@@ -143,6 +145,7 @@ window.addEventListener('load', function() {
     }
 
     function signup(e) {
+      console.log('signup');
       e.preventDefault();
       clearErrors();
       var button = this;
@@ -167,6 +170,7 @@ window.addEventListener('load', function() {
     }
 
     function loginWithGoogle() {
+      console.log('loginWithGoogle');
       webAuth.authorize({
         connection: 'google-oauth2'
       }, function(err) {
@@ -175,6 +179,7 @@ window.addEventListener('load', function() {
     }
             
     function loginWithMicrosoft() {
+      console.log('loginWithMicrosoft');
       webAuth.authorize({
         connection: 'windowslive'
       }, function(err) {
