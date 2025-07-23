@@ -1,8 +1,46 @@
+/*
+ * RevOptica Authentication Script
+ * 
+ * To use this script, you need to provide configuration data before loading this script.
+ * Add this to your HTML before the script tag:
+ * 
+ * <script>
+ * window.configData = {
+ *   auth0Tenant: "your-tenant",
+ *   auth0Domain: "your-domain.auth0.com",
+ *   clientID: "your-client-id",
+ *   callbackURL: "your-callback-url",
+ *   authorizationServer: {
+ *     issuer: "your-issuer"
+ *   },
+ *   internalOptions: {
+ *     leeway: 60
+ *   }
+ * };
+ * </script>
+ */
+
 window.addEventListener('load', function() {
 
-    var config = JSON.parse(
-      decodeURIComponent(escape(window.atob('@@config@@')))
-    );
+    // Try to get config from different sources
+    var config;
+    try {
+        // First try to get config from the @@config@@ placeholder (if it exists)
+        if (typeof window.configData !== 'undefined') {
+            config = window.configData;
+        } else if (typeof window.atob !== 'undefined') {
+            // Fallback to the original method
+            config = JSON.parse(
+                decodeURIComponent(escape(window.atob('@@config@@')))
+            );
+        } else {
+            console.error('Configuration not found. Please ensure configData is available.');
+            return;
+        }
+    } catch (e) {
+        console.error('Error parsing configuration:', e);
+        return;
+    }
 
     document.getElementById('registerSwitcher').addEventListener('click', function(e){
       e.preventDefault();
@@ -164,8 +202,8 @@ window.addEventListener('load', function() {
     document.getElementById('btn-login').addEventListener('click', login);
     document.getElementById('btn-google').addEventListener('click', loginWithGoogle);
     document.getElementById('btn-google2').addEventListener('click', loginWithGoogle);
-    document.getElementById('btn-microsoft').addEventListener('click', loginWithGoogle);
-    document.getElementById('btn-microsoft2').addEventListener('click', loginWithGoogle);
+    document.getElementById('btn-microsoft').addEventListener('click', loginWithMicrosoft);
+    document.getElementById('btn-microsoft2').addEventListener('click', loginWithMicrosoft);
     document.getElementById('btn-signup').addEventListener('click', signup);
     document.getElementById('btn-forgot').addEventListener('click', forgotpassword);
   });
