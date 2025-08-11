@@ -110,6 +110,7 @@ window.addEventListener('load', function() {
       var button = this;
       var username = document.getElementById('loginemail').value;
       var password = document.getElementById('loginpassword').value;
+      console.log("username: " + username + ",password: " + password);
       button.disabled = true;
       webAuth.login({
         realm: databaseConnection,
